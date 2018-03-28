@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import * as actionTypes from 'app/constants';
 
 const handleSelected = (state = 'users', action) => {
   switch (action.type) {
@@ -11,7 +12,7 @@ const handleSelected = (state = 'users', action) => {
   }
 };
 
-const getItems = (state = { }, action) => {
+const getItems = (state = {}, action) => {
   switch (action.type) {
 
     case actionTypes.RECIEVE_ITEMS:

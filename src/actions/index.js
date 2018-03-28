@@ -1,16 +1,22 @@
-import * as actionTypes from 'app/constants/actionTypes';
+import * as actionTypes from 'app/constants';
 
-const loadPosts = selected => ({
-  type: actionTypes.GET_ITEMS,
+const loadItems = selected => ({
+  type: actionTypes.LOAD_ITEMS,
   selected
 });
 
+const recieveItems = items => ({
+  type: actionTypes.RECIEVE_ITEMS,
+  items
+});
+
 export const fetchItems = selected => dispatch => {
-  const data = require(`../../data/${selected}.json`); 
+  dispatch(loadItems(selected));
+  const data = require(`../../data/${selected}.json`);
   return dispatch(recieveItems(data));
 };
 
-export const setSelected = selected => dispatch => {
+export const setSelected = selected => dispatch => ({
   type: actionTypes.SET_SELECTED,
   selected
-};
+});

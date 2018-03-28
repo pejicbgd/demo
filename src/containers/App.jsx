@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import { fetchItems, setSelected } from 'app/actions';
+import { fetchItems } from 'app/actions';
 import TableList from 'app/components/TableList';
 
 class App extends Component {
+
+  static propTypes = {
+    selected: PropTypes.string.isRequired,
+    items: PropTypes.array.isRequired
+  };
 
   componentDidMount() {
     const { selected, dispatch } = this.props;

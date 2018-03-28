@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const TableList = ({ items }) => {
   const headers = items.length ?
@@ -10,7 +11,7 @@ const TableList = ({ items }) => {
       <tbody>
 
         <tr>
-          { headers.map((entry, i) => 
+          { headers.map((entry, i) =>
             <th key={ i }>{ entry }</th>
           ) }
         </tr>
@@ -26,6 +27,10 @@ const TableList = ({ items }) => {
       </tbody>
     </table>
   )
+};
+
+TableList.propTypes = {
+  items: PropTypes.array.isRequired
 };
 
 export default TableList;
